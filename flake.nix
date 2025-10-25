@@ -11,11 +11,11 @@
     systems.url = "github:nix-systems/default-linux";
     lanzaboote.url = "github:nix-community/lanzaboote";
 
-    impermanence = {
-      url = "github:nix-community/impermanence";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-    };
+    # impermanence = {
+    #   url = "github:nix-community/impermanence";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    #   inputs.home-manager.follows = "home-manager";
+    # };
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -44,6 +44,11 @@
 
     nh = {
       url = "github:nix-community/nh";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

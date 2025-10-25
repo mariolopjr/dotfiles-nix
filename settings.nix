@@ -8,7 +8,7 @@
       terminal = "wezterm";
       browser = "zen";
       fileManager = "nautilus";
-      terminalFileManager = "yazi"; #
+      terminalFileManager = "yazi";
       git = {
         username = "Mario";
         mail = "mariolopjr@users.noreply.github.com";

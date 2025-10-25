@@ -1,11 +1,9 @@
-{ config, ... }:
-let
+{config, ...}: let
   modules = [
+    "base"
   ];
-in
-{
+in {
   flake.modules.nixos."hosts/winterfell" =
     config.flake.lib.loadNixosAndHmModuleForUser config modules
-      "mario";
+    "mario";
 }
-
