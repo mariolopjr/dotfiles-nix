@@ -22,7 +22,7 @@ in {
           description = "Mario";
           shell = pkgs.fish;
           initialHashedPassword = mkIf (!isInstall) "";
-          hashedPasswordFile = mkIf isInstall config.sops.secrets.mario-password.path;
+          # hashedPasswordFile = mkIf isInstall config.sops.secrets.mario-password.path;
           extraGroups = [
             "wheel"
             "input"
