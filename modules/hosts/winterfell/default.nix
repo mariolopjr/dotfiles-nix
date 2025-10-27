@@ -1,6 +1,7 @@
 {config, ...}: let
   modules = [
     "base"
+    "desktop"
   ];
 in {
   flake.modules.nixos."hosts/winterfell" =

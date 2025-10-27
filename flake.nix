@@ -1,7 +1,8 @@
 {
   description = "my dotfiles";
 
-  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; }
+  outputs = inputs:
+    inputs.flake-parts.lib.mkFlake {inherit inputs;}
     (inputs.import-tree ./modules);
 
   inputs = {
@@ -51,5 +52,7 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    niri.url = "github:sodiboo/niri-flake";
   };
 }
