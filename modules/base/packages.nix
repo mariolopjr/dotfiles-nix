@@ -7,6 +7,7 @@
           curl
           git
           lazygit
+          nh
           unzip
           zip
           ;
