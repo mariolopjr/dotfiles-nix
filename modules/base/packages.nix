@@ -4,9 +4,11 @@
     {
       environment.systemPackages = builtins.attrValues {
         inherit (pkgs)
-          zip
-          unzip
           curl
+          git
+          lazygit
+          unzip
+          zip
           ;
       };
     };

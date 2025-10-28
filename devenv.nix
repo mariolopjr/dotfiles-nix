@@ -11,7 +11,7 @@
   # https://devenv.sh/packages/
   packages = [
     pkgs.alejandra
-    pkgs.git
+    pkgs.just
     pkgs.nixd
     pkgs.nh
   ];

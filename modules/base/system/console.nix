@@ -6,8 +6,7 @@
     };
 
     services.xserver.xkb = {
-      layout = "at";
-      options = "caps:swapescape";
+      layout = "us";
     };
   };
 }
