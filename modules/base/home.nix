@@ -1,4 +1,6 @@
-{
+{config, ...}: let
+  inherit (config.flake) meta;
+in {
   flake.modules = {
     nixos.base = {
       home-manager = {
@@ -10,8 +12,8 @@
 
     homeManager.base = {
       home = {
-        username = "mario";
-        homeDirectory = "/home/mario";
+        username = meta.users.mario.username;
+        homeDirectory = meta.users.mario.homeDirectory;
       };
 
       programs.home-manager.enable = true;

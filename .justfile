@@ -12,10 +12,6 @@ alias iso := build-iso
 default:
     @just --list
 
-todo:
-    @echo TO-DOs in:
-    @rg --files-with-matches TODO || echo "Everything's done!"
-
 # ---------- local ---------- #
 [group("local")]
 update *inputs:

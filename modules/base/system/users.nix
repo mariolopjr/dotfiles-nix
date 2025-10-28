@@ -19,7 +19,7 @@ in {
       users = {
         mario = {
           isNormalUser = true;
-          description = "Mario";
+          description = meta.users.mario.name;
           shell = pkgs.fish;
           initialHashedPassword = mkIf (!isInstall) "";
           # hashedPasswordFile = mkIf isInstall config.sops.secrets.mario-password.path;

@@ -3,8 +3,9 @@
     "base"
     "desktop"
   ];
+  inherit (config.flake) meta;
 in {
   flake.modules.nixos."hosts/winterfell" =
     config.flake.lib.loadNixosAndHmModuleForUser config modules
-    "mario";
+    meta.users.mario.username;
 }

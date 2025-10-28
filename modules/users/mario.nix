@@ -1,6 +1,8 @@
 {
   flake = {
-    meta.users.mario = {
+    meta.users.mario = rec {
+      username = "mario";
+      homeDirectory = "/home/${username}";
       name = "Mario";
       email = "mariolopjr@users.noreply.github.com";
       authorizedKeys = [
