@@ -4,6 +4,7 @@
       inherit
         (pkgs)
         curl
+        devenv
         git
         lazygit
         nh
