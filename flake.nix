@@ -1,6 +1,12 @@
 {
-  description = "my dotfiles";
+  description = "mario's dotfiles";
 
+  # TODO: address unknown flake output warnings
+  # warning: unknown flake output 'meta'
+  # warning: unknown flake output 'modules'
+  # warning: unknown flake output 'images'
+
+  # TODO: enable these at some point
   # nixConfig = {
   #   abort-on-warn = true;
   #   extra-experimental-features = ["pipe-operators"];
