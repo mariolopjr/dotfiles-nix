@@ -2,6 +2,7 @@ machine_hostname := shell("hostname -s")
 
 alias up := update
 alias b := boot
+alias bm := build
 alias s := switch
 alias t := test
 alias fl := fix-lanzaboote

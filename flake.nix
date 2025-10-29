@@ -1,9 +1,11 @@
 {
   description = "my dotfiles";
 
-  outputs = inputs:
-    inputs.flake-parts.lib.mkFlake {inherit inputs;}
-    (inputs.import-tree ./modules);
+  # nixConfig = {
+  #   abort-on-warn = true;
+  #   extra-experimental-features = ["pipe-operators"];
+  #   allow-import-from-derivation = false;
+  # };
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
@@ -55,4 +57,8 @@
 
     niri.url = "github:sodiboo/niri-flake";
   };
+
+  outputs = inputs:
+    inputs.flake-parts.lib.mkFlake {inherit inputs;}
+    (inputs.import-tree ./modules);
 }
