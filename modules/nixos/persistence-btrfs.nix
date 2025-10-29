@@ -1,7 +1,10 @@
 {
-  flake.modules.nixos.persistence-btrfs =
-  {pkgs, config, ... }:
-  {
+  flake.modules.nixos.persistence-btrfs = {
+    pkgs,
+    config,
+    ...
+  }: {
+    # TODO: this should restore the blank snapshot
     boot.initrd.postDeviceCommands = pkgs.lib.mkAfter ''
       mkdir /btrfs_tmp
       mount /dev/root_vg/root /btrfs_tmp

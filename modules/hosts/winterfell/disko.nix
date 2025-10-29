@@ -41,36 +41,34 @@
                 settings = {
                   allowDiscards = true;
                 };
-                content = {
+                content = let
+                  mountOptions = [
+                    "compress=zstd"
+                    "ssd"
+                    "noatime"
+                    "discard=async"
+                  ];
+                in {
                   type = "btrfs";
                   extraArgs = ["-f"];
+                  postCreateHook = ''
+                    MNTPOINT=$(mktemp -d)
+                    mount "/dev/mapper/cryptroot" "$MNTPOINT" -o subvol=/
+                    trap 'umount $MNTPOINT; rm -rf $MNTPOINT' EXIT
+                    btrfs subvolume snapshot -r $MNTPOINT/root $MNTPOINT/root-blank
+                  '';
                   subvolumes = {
                     "/root" = {
                       mountpoint = "/";
-                      mountOptions = [
-                        "compress=zstd"
-                        "ssd"
-                        "noatime"
-                        "discard=async"
-                      ];
+                      inherit mountOptions;
                     };
                     "/persist" = {
                       mountpoint = "/persist";
-                      mountOptions = [
-                        "compress=zstd"
-                        "ssd"
-                        "noatime"
-                        "discard=async"
-                      ];
+                      inherit mountOptions;
                     };
                     "/nix" = {
                       mountpoint = "/nix";
-                      mountOptions = [
-                        "compress=zstd"
-                        "ssd"
-                        "noatime"
-                        "discard=async"
-                      ];
+                      inherit mountOptions;
                     };
                   };
                 };
