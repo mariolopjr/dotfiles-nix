@@ -10,10 +10,12 @@
 
   # https://devenv.sh/packages/
   packages = [
+    pkgs.age
     pkgs.alejandra
     pkgs.just
     pkgs.nixd
     pkgs.nh
+    pkgs.sops
   ];
 
   # https://devenv.sh/languages/

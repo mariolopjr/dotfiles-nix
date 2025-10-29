@@ -22,7 +22,7 @@ in {
           description = meta.users.mario.name;
           shell = pkgs.fish;
           initialHashedPassword = mkIf (!isInstall) "";
-          # hashedPasswordFile = mkIf isInstall config.sops.secrets.mario-password.path;
+          hashedPasswordFile = mkIf isInstall config.sops.secrets.mario-password.path;
           extraGroups = [
             "wheel"
             "input"
@@ -31,8 +31,8 @@ in {
         };
 
         root = {
-          hashedPassword = mkIf isInstall null;
           initialHashedPassword = mkIf (!isInstall) "";
+          hashedPasswordFile = mkIf isInstall config.sops.secrets.mario-password.path;
           openssh.authorizedKeys.keys = meta.users.mario.authorizedKeys;
         };
       };
