@@ -4,7 +4,7 @@ name: Update Flake
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 22 */2 * *" # every other day at 22:00
+    - cron: "0 22 * * sun" # every sunday at 22:00
 
 jobs:
   update-flake:
@@ -48,11 +48,3 @@ jobs:
           pr-labels: |
             dependencies
             automated
-
-      - name: Auto merge
-        run: |
-          if [ -n "${{ steps.update.outputs.pull-request-number }}" ]; then
-            gh pr merge --auto --rebase ${{ steps.update.outputs.pull-request-number }}
-          fi
-        env:
-          GH_TOKEN: ${{ github.token }}
