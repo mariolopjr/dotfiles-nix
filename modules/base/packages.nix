@@ -7,6 +7,7 @@
         devenv
         git
         lazygit
+        neovim
         nh
         unzip
         zip
