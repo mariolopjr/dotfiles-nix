@@ -66,10 +66,18 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    niri-unstable.url = "github:YaLTeR/niri";
-    niri = {
-      url = "github:sodiboo/niri-flake";
-      inputs.niri-unstable.follows = "niri-unstable";
+    ghostty = {
+      url = "github:ghostty-org/ghostty";
+      inputs = {
+        flake-compat.follows = "flake-compat";
+        flake-utils.follows = "flake-utils";
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
+
+    catppuccin = {
+      url = "github:catppuccin/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # hyprland

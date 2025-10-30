@@ -1,13 +1,12 @@
 {
-  settings = hostname: {
-    inherit hostname;
+  flake.meta = {
+    dotfilesPath = "/home/mario/dotfiles";
 
-    # Defaults
     programs = {
       editor = "nvim";
-      terminal = "wezterm";
-      browser = "zen";
-      fileManager = "nautilus";
+      terminal = "ghostty";
+      browser = "firefox";
+      fileManager = "nautilus"; # TODO: change this to something else for GUI
       terminalFileManager = "yazi";
       git = {
         username = "Mario";
