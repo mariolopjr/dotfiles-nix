@@ -45,7 +45,7 @@ in {
       decoration = {
         rounding = border.radius;
 
-        active_opacity = config.stylix.opacity.applications;
+        # active_opacity = config.stylix.opacity.applications;
         # inactive_opacity = lib.mkIf (config.stylix.opacity.applications < 1) (
         #   config.stylix.opacity.applications - 0.2
         # );

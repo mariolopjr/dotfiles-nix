@@ -2,6 +2,13 @@
   flake.meta = {
     dotfilesPath = "/home/mario/dotfiles";
 
+    appearance = {
+      border = {
+        size = 2;
+        radius = 7;
+      };
+    };
+
     programs = {
       editor = "nvim";
       terminal = "ghostty";
