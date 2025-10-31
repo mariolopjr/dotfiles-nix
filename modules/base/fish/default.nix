@@ -30,9 +30,13 @@
           inherit (name) src;
         };
       in [
+        # TODO: add the other fish plugins as nix packages
         (fishPlugin pkgs.fishPlugins.autopair)
         (fishPlugin pkgs.fishPlugins.done)
+        # (fishPlugin pkgs.fishPlugins.fish-abbreviation-tips)
         (fishPlugin pkgs.fishPlugins.fzf-fish)
+        # (fishPlugin pkgs.fishPlugins.puffer-fish)
+        (fishPlugin pkgs.fishPlugins.tide)
       ];
 
       functions = {
@@ -54,6 +58,12 @@
           expansion = "nix flake new --template $NH_FLAKE#%";
         };
       };
+    };
+
+    home.activation = {
+      tide-configure = lib.hm.dag.entryAfter ["writeBoundary"] ''
+        :tide configure --auto --style=Lean --prompt_colors='True color' --show_time='24-hour format' --lean_prompt_height='Two lines' --prompt_connection=Solid --prompt_connection_andor_frame_color=Darkest --prompt_spacing=Sparse --icons='Few icons' --transient=Yes
+      '';
     };
 
     # home.file = {
