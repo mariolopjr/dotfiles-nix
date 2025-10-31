@@ -36,7 +36,7 @@
       ];
 
       functions = {
-        # fish_greeting = lib.getExe inputs.gotcha.packages.${pkgs.system}.default;
+        fish_greeting = lib.getExe pkgs.fastfetch;
       };
 
       shellAbbrs = {

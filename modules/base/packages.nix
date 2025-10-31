@@ -5,6 +5,7 @@
         (pkgs)
         curl
         devenv
+        fastfetch
         git
         lazygit
         neovim

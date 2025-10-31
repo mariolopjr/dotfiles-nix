@@ -34,7 +34,7 @@ in {
         efi.canTouchEfiVariables = true;
       };
 
-      # plymouth.enable = true;
+      plymouth.enable = true;
     };
   };
 }
