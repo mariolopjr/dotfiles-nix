@@ -7,7 +7,11 @@
     programs.fish.enable = true;
   };
 
-  flake.modules.homeManager.base = {pkgs, ...}: {
+  flake.modules.homeManager.base = {
+    lib,
+    pkgs,
+    ...
+  }: {
     programs.fish = {
       enable = true;
 
@@ -60,11 +64,9 @@
       };
     };
 
-    home.activation = {
-      tide-configure = lib.hm.dag.entryAfter ["writeBoundary"] ''
-        :tide configure --auto --style=Lean --prompt_colors='True color' --show_time='24-hour format' --lean_prompt_height='Two lines' --prompt_connection=Solid --prompt_connection_andor_frame_color=Darkest --prompt_spacing=Sparse --icons='Few icons' --transient=Yes
-      '';
-    };
+    home.activation.tide-configure = lib.hm.dag.entryAfter ["writeBoundary"] ''
+      :tide configure --auto --style=Lean --prompt_colors='True color' --show_time='24-hour format' --lean_prompt_height='Two lines' --prompt_connection=Solid --prompt_connection_andor_frame_color=Darkest --prompt_spacing=Sparse --icons='Few icons' --transient=Yes
+    '';
 
     # home.file = {
     #   ".config/fish/functions" = {
