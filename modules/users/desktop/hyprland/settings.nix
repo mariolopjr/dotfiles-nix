@@ -136,6 +136,10 @@ in {
         animate_manual_resizes = true;
         focus_on_activate = true;
       };
+
+      ecosystem = {
+        no_update_news = true;
+      };
     };
   };
 }

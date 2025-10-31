@@ -5,10 +5,6 @@
         greetd = {
           enable = true;
           settings = {
-            default_session = {
-              command = "${pkgs.hyprland}/bin/hyprland";
-              user = "greeter";
-            };
             terminal.vt = 1;
           };
         };

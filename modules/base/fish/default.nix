@@ -47,6 +47,8 @@
         ll = "ls -l";
         lla = "ls -la";
 
+        dev = "devenv shell";
+
         mkdev = {
           setCursor = "%";
           expansion = "nix flake new --template $NH_FLAKE#%";
