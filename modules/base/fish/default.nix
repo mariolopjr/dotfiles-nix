@@ -26,6 +26,10 @@
           set fish_cursor_visual block # visual mode
 
           set fish_cursor_external line # in commands
+
+          if test -n "$IN_NIX_SHELL"
+            set_color cyan; printf "(devenv) "; set_color normal
+          end
         '';
 
       plugins = let

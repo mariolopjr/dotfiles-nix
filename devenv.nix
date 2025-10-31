@@ -33,10 +33,9 @@
   # '';
 
   # https://devenv.sh/basics/
-  # enterShell = ''
-  #   hello         # Run scripts directly
-  #   git --version # Use packages
-  # '';
+  enterShell = ''
+    exec fish
+  '';
 
   # https://devenv.sh/tasks/
   # tasks = {
