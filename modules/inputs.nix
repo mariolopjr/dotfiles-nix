@@ -17,9 +17,9 @@
   ];
 
   flake-file = {
-    inputs = {
-      description = "mario's dotfiles";
+    description = "mario's dotfiles";
 
+    inputs = {
       nixpkgs.url = "nixpkgs/nixos-unstable";
       nixpkgs-stable.url = "nixpkgs/nixos-25.05";
       nixos-hardware.url = "github:NixOS/nixos-hardware";
