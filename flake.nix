@@ -1,167 +1,267 @@
+# DO-NOT-EDIT. This file was auto-generated using github:vic/flake-file.
+# Use `nix run .#write-flake` to regenerate it.
 {
   description = "mario's dotfiles";
 
-  # TODO: address unknown flake output warnings
-  # warning: unknown flake output 'meta'
-  # warning: unknown flake output 'modules'
-  # warning: unknown flake output 'images'
-
-  # TODO: enable these at some point
-  # nixConfig = {
-  #   abort-on-warn = true;
-  #   extra-experimental-features = ["pipe-operators"];
-  #   allow-import-from-derivation = false;
-  # };
+  outputs = inputs: import ./outputs.nix inputs;
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "nixpkgs/nixos-25.05";
-    nixos-hardware.url = "github:NixOS/nixos-hardware";
-    systems.url = "github:nix-systems/default-linux";
-    lanzaboote.url = "github:nix-community/lanzaboote";
-
-    sops-nix = {
-      url = "github:Mic92/sops-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
+    catppuccin = {
+      inputs = {
+        nixpkgs = {
+          follows = "nixpkgs";
+        };
+      };
+      url = "github:catppuccin/nix";
     };
-
-    # impermanence = {
-    #   url = "github:nix-community/impermanence";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    #   inputs.home-manager.follows = "home-manager";
-    # };
-
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
+    disko = {
+      inputs = {
+        nixpkgs = {
+          follows = "nixpkgs";
+        };
+      };
+      url = "github:nix-community/disko";
     };
-
-    flake-parts = {
-      url = "github:hercules-ci/flake-parts";
-      inputs.nixpkgs-lib.follows = "nixpkgs";
-    };
-
-    import-tree = {
-      url = "github:vic/import-tree";
-      inputs.nixpkgs-lib.follows = "nixpkgs";
-    };
-
-    flake-file = {
-      url = "github:vic/flake-file";
-      inputs.nixpkgs-lib.follows = "nixpkgs";
-    };
-
     flake-compat = {
       url = "github:edolstra/flake-compat";
     };
-
+    flake-file = {
+      inputs = {
+        nixpkgs = {
+          follows = "nixpkgs";
+        };
+        nixpkgs-lib = {
+          follows = "nixpkgs";
+        };
+      };
+      url = "github:vic/flake-file";
+    };
+    flake-parts = {
+      inputs = {
+        nixpkgs-lib = {
+          follows = "nixpkgs";
+        };
+      };
+      url = "github:hercules-ci/flake-parts";
+    };
     flake-utils = {
+      inputs = {
+        systems = {
+          follows = "systems";
+        };
+      };
       url = "github:numtide/flake-utils";
-      inputs.systems.follows = "systems";
     };
-
-    disko = {
-      url = "github:nix-community/disko";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nh = {
-      url = "github:nix-community/nh";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nix-index-database = {
-      url = "github:nix-community/nix-index-database";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     ghostty = {
+      inputs = {
+        flake-compat = {
+          follows = "flake-compat";
+        };
+        flake-utils = {
+          follows = "flake-utils";
+        };
+        nixpkgs = {
+          follows = "nixpkgs";
+        };
+      };
       url = "github:ghostty-org/ghostty";
+    };
+    home-manager = {
       inputs = {
-        flake-compat.follows = "flake-compat";
-        flake-utils.follows = "flake-utils";
-        nixpkgs.follows = "nixpkgs";
+        nixpkgs = {
+          follows = "nixpkgs";
+        };
       };
+      url = "github:nix-community/home-manager";
     };
-
-    catppuccin = {
-      url = "github:catppuccin/nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # hyprland
-    hyprland.url = "github:hyprwm/hyprland";
     hypridle = {
+      inputs = {
+        hyprland-protocols = {
+          follows = "hyprland/hyprland-protocols";
+        };
+        hyprlang = {
+          follows = "hyprland/hyprlang";
+        };
+        hyprutils = {
+          follows = "hyprland/hyprutils";
+        };
+        hyprwayland-scanner = {
+          follows = "hyprland/hyprwayland-scanner";
+        };
+        nixpkgs = {
+          follows = "hyprland/nixpkgs";
+        };
+        systems = {
+          follows = "hyprland/systems";
+        };
+      };
       url = "github:hyprwm/hypridle";
-      inputs = {
-        hyprland-protocols.follows = "hyprland/hyprland-protocols";
-        hyprlang.follows = "hyprland/hyprlang";
-        hyprutils.follows = "hyprland/hyprutils";
-        hyprwayland-scanner.follows = "hyprland/hyprwayland-scanner";
-        nixpkgs.follows = "hyprland/nixpkgs";
-        systems.follows = "hyprland/systems";
-      };
     };
-
+    hyprland = {
+      url = "github:hyprwm/hyprland";
+    };
     hyprland-contrib = {
+      inputs = {
+        nixpkgs = {
+          follows = "hyprland/nixpkgs";
+        };
+      };
       url = "github:hyprwm/contrib";
-      inputs.nixpkgs.follows = "hyprland/nixpkgs";
     };
-
     hyprland-plugins = {
+      inputs = {
+        hyprland = {
+          follows = "hyprland";
+        };
+        nixpkgs = {
+          follows = "hyprland/nixpkgs";
+        };
+        systems = {
+          follows = "hyprland/systems";
+        };
+      };
       url = "github:hyprwm/hyprland-plugins";
-      inputs = {
-        hyprland.follows = "hyprland";
-        nixpkgs.follows = "hyprland/nixpkgs";
-        systems.follows = "hyprland/systems";
-      };
     };
-
     hyprlock = {
+      inputs = {
+        hyprgraphics = {
+          follows = "hyprland/hyprgraphics";
+        };
+        hyprlang = {
+          follows = "hyprland/hyprlang";
+        };
+        hyprutils = {
+          follows = "hyprland/hyprutils";
+        };
+        hyprwayland-scanner = {
+          follows = "hyprland/hyprwayland-scanner";
+        };
+        nixpkgs = {
+          follows = "hyprland/nixpkgs";
+        };
+        systems = {
+          follows = "hyprland/systems";
+        };
+      };
       url = "github:hyprwm/hyprlock";
-      inputs = {
-        hyprgraphics.follows = "hyprland/hyprgraphics";
-        hyprlang.follows = "hyprland/hyprlang";
-        hyprutils.follows = "hyprland/hyprutils";
-        hyprwayland-scanner.follows = "hyprland/hyprwayland-scanner";
-        nixpkgs.follows = "hyprland/nixpkgs";
-        systems.follows = "hyprland/systems";
-      };
     };
-
     hyprpaper = {
+      inputs = {
+        hyprgraphics = {
+          follows = "hyprland/hyprgraphics";
+        };
+        hyprlang = {
+          follows = "hyprland/hyprlang";
+        };
+        hyprutils = {
+          follows = "hyprland/hyprutils";
+        };
+        hyprwayland-scanner = {
+          follows = "hyprland/hyprwayland-scanner";
+        };
+        nixpkgs = {
+          follows = "hyprland/nixpkgs";
+        };
+        systems = {
+          follows = "hyprland/systems";
+        };
+      };
       url = "github:hyprwm/hyprpaper";
-      inputs = {
-        hyprgraphics.follows = "hyprland/hyprgraphics";
-        hyprlang.follows = "hyprland/hyprlang";
-        hyprutils.follows = "hyprland/hyprutils";
-        hyprwayland-scanner.follows = "hyprland/hyprwayland-scanner";
-        nixpkgs.follows = "hyprland/nixpkgs";
-        systems.follows = "hyprland/systems";
-      };
     };
-
     hyprpicker = {
+      inputs = {
+        hyprutils = {
+          follows = "hyprland/hyprutils";
+        };
+        hyprwayland-scanner = {
+          follows = "hyprland/hyprwayland-scanner";
+        };
+        nixpkgs = {
+          follows = "hyprland/nixpkgs";
+        };
+        systems = {
+          follows = "hyprland/systems";
+        };
+      };
       url = "github:hyprwm/hyprpicker";
-      inputs = {
-        hyprutils.follows = "hyprland/hyprutils";
-        hyprwayland-scanner.follows = "hyprland/hyprwayland-scanner";
-        nixpkgs.follows = "hyprland/nixpkgs";
-        systems.follows = "hyprland/systems";
-      };
     };
-
-    pyprland = {
-      url = "github:hyprland-community/pyprland";
+    import-tree = {
       inputs = {
-        flake-compat.follows = "flake-compat";
-        nixpkgs.follows = "hyprland/nixpkgs";
-        systems.follows = "hyprland/systems";
+        nixpkgs-lib = {
+          follows = "nixpkgs";
+        };
       };
+      url = "github:vic/import-tree";
+    };
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote";
+    };
+    nh = {
+      inputs = {
+        nixpkgs = {
+          follows = "nixpkgs";
+        };
+      };
+      url = "github:nix-community/nh";
+    };
+    nix-auto-follow = {
+      inputs = {
+        nixpkgs = {
+          follows = "nixpkgs";
+        };
+      };
+      url = "github:fzakaria/nix-auto-follow";
+    };
+    nix-index-database = {
+      inputs = {
+        nixpkgs = {
+          follows = "nixpkgs";
+        };
+      };
+      url = "github:nix-community/nix-index-database";
+    };
+    nixos-hardware = {
+      url = "github:NixOS/nixos-hardware";
+    };
+    nixpkgs = {
+      url = "nixpkgs/nixos-unstable";
+    };
+    nixpkgs-stable = {
+      url = "nixpkgs/nixos-25.05";
+    };
+    nvf = {
+      inputs = {
+        nixpkgs = {
+          follows = "nixpkgs";
+        };
+      };
+      url = "github:notashelf/nvf";
+    };
+    pyprland = {
+      inputs = {
+        flake-compat = {
+          follows = "flake-compat";
+        };
+        nixpkgs = {
+          follows = "hyprland/nixpkgs";
+        };
+        systems = {
+          follows = "hyprland/systems";
+        };
+      };
+      url = "github:hyprland-community/pyprland";
+    };
+    sops-nix = {
+      inputs = {
+        nixpkgs = {
+          follows = "nixpkgs";
+        };
+      };
+      url = "github:Mic92/sops-nix";
+    };
+    systems = {
+      url = "github:nix-systems/default-linux";
     };
   };
 
-  outputs = inputs:
-    inputs.flake-parts.lib.mkFlake {inherit inputs;}
-    (inputs.import-tree ./modules);
 }
