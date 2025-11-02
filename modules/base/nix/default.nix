@@ -13,9 +13,11 @@
 
     programs.nh = {
       enable = true;
-      package = inputs.nh.packages.${pkgs.system}.default;
+      # TODO: figure out why this was breaking?
+      # package = inputs.nh.packages.${pkgs.system}.default;
       clean = {
         enable = true;
+        dates = "Sun *-*-* 18:00:00";
         extraArgs = "--keep-since 1w --keep 3";
       };
       flake = "/home/mario/dotfiles";

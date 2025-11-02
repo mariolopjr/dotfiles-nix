@@ -15,8 +15,9 @@
     pkgs,
     ...
   }: {
-    programs.nvf = {
-      enable = true;
-    };
+    # TODO: fix this brokenness lol
+    # programs.nvf = {
+    #   enable = true;
+    # };
   };
 }
