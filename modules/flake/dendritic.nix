@@ -8,6 +8,7 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
   imports = [
-    inputs.flake-file.flakeModules.dendritic
+    inputs.flake-file.flakeModules.default
+    inputs.flake-file.flakeModules.nix-auto-follow
   ];
 }
